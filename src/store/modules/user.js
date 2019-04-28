@@ -5,6 +5,9 @@ const user = {
   mutations: {
     SET_NAME: (state, name) => {
       state.name = name
+    },
+    change(state){
+      state.name = 'data'
     }
   },
   actions: {

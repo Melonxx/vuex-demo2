@@ -3,6 +3,8 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     {{ name }}
+    111
+    {{ $store.state.user.name }}
     <button @click="changeName">更改名字</button>
   </div>
 </template>
@@ -23,7 +25,8 @@ export default {
   },
   methods: {
     changeName(){
-      this.$store.dispatch('changeName', 'aaaaaaa')
+      // this.$store.dispatch('changeName', 'aaaaaaa')
+      this.$store.commit('change')
     }
   }
 }
