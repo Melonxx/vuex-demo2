@@ -21,18 +21,19 @@ export default {
   computed: {
     ...mapState({name: state => state.user.name}),
     // ...mapGetters(['name']),
-    ...mapActions(['changeName']),
-    // ...mapMutations(['name']),
+    // ...mapActions(['changeName']),
+    
   },
   mounted(){
-    // this.changeName('aaaaaaa')
+    this.changeName('aaaaaaa')
   },
-  // methods: {
+  methods: {
+  ...mapMutations(['changeName']),
   //   changeName(){
   //     // this.$store.dispatch('changeName', 'aaaaaaa')
   //     this.$store.commit('change')
   //   }
-  // }
+  }
 }
 </script>
 
