@@ -12,6 +12,7 @@
 <script>
 import { mapGetters, mapState, mapActions, mapMutations } from 'vuex'
 import HelloWorld from './components/HelloWorld.vue'
+import { setTimeout } from 'timers';
 
 export default {
   name: 'app',
@@ -21,18 +22,19 @@ export default {
   computed: {
     ...mapState({name: state => state.user.name}),
     // ...mapGetters(['name']),
-    // ...mapActions(['changeName']),
-    
   },
   mounted(){
-    this.changeName('aaaaaaa')
+    // this.changeName('aaaaaaa')
   },
   methods: {
-  ...mapMutations(['changeName']),
-  //   changeName(){
-  //     // this.$store.dispatch('changeName', 'aaaaaaa')
-  //     this.$store.commit('change')
-  //   }
+  // ...mapMutations(['changeName']),
+  // ...mapActions(['changeName']),
+    changeName(){
+      this.$store.dispatch('changeName', 'aaaaaaa')
+      // setTimeout(() => {this.$store.commit('change')})
+      // this.$store.commit('change')
+      console.log(this.name)
+    }
   }
 }
 </script>
