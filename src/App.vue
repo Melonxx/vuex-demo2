@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState, mapActions, mapMutations } from 'vuex'
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
@@ -19,16 +19,20 @@ export default {
     HelloWorld
   },
   computed: {
-    ...mapGetters([
-      'name'
-    ])
+    ...mapState({name: state => state.user.name}),
+    // ...mapGetters(['name']),
+    ...mapActions(['changeName']),
+    // ...mapMutations(['name']),
   },
-  methods: {
-    changeName(){
-      // this.$store.dispatch('changeName', 'aaaaaaa')
-      this.$store.commit('change')
-    }
-  }
+  mounted(){
+    // this.changeName('aaaaaaa')
+  },
+  // methods: {
+  //   changeName(){
+  //     // this.$store.dispatch('changeName', 'aaaaaaa')
+  //     this.$store.commit('change')
+  //   }
+  // }
 }
 </script>
 
